@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../domain/product';
 import { ProductService } from '../service/productservice';
 import { ConfirmationService } from '../service/confirmationservice';
-import { MessageService } from '../service/messageservice';
+
 interface City {
   name: string,
   code: string
@@ -19,6 +19,7 @@ interface City {
       display: block;
   }
 `],
+
 })
 
 
@@ -36,7 +37,7 @@ export class PostComponent implements OnInit {
 
   statuses: any[];
 
-  constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(private productService: ProductService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
     this.productDialog = false;
@@ -64,7 +65,7 @@ export class PostComponent implements OnInit {
           accept: () => {
               this.products = this.products.filter(val => !this.selectedProducts.includes(val));
               this.selectedProducts = null;
-              this.messageService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
+              //this.messageService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
           }
       });
   }
@@ -82,7 +83,7 @@ export class PostComponent implements OnInit {
           accept: () => {
               this.products = this.products.filter(val => val.id !== product.id);
               this.product = {};
-              this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+             // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
           }
       });
   }
@@ -98,13 +99,13 @@ export class PostComponent implements OnInit {
       if (this.product.name.trim()) {
           if (this.product.id) {
               this.products[this.findIndexById(this.product.id)] = this.product;                
-              this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
+             // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
           }
           else {
               this.product.id = this.createId();
               this.product.image = 'product-placeholder.svg';
               this.products.push(this.product);
-              this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+              //this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
           }
 
           this.products = [...this.products];

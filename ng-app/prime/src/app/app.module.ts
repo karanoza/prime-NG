@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MessageService  } from './service/messageservice';
+import { MessageService } from './service/messageservice';
 import { ConfirmationService } from './service/confirmationservice';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,13 +48,13 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     InputTextareaModule,
     RadioButtonModule,
     CheckboxModule,
-    ToastModule,
-    RatingModule,
-    InputNumberModule,
-    ConfirmDialogModule
+    // ToastModule,
+    // RatingModule,
+    // InputNumberModule,
+    // ConfirmDialogModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [MessageService , ProductService, ConfirmationService],
+  providers: [MessageService ,ProductService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
